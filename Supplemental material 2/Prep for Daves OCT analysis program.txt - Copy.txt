@@ -1,0 +1,62 @@
+run("8-bit");
+run("Gel Analyzer Options...", "vertical=1 horizontal=5 uncalibrated");
+
+run("Profile Plot Options...", "width=450 height=200 minimum=0 maximum=0 vertical interpolate sub-pixel");
+
+//run("Flip Vertically");
+//makeRectangle(0, 126, 1000, 500);
+//setTool("rectangle");
+//waitForUser( "Pause","Position ROI around retina");
+//run("Crop"); 
+run("Duplicate...", " ");
+run("Images to Stack");
+run("Analyze... ", "save=[C:\\Users\\aa1924\\OneDrive - Wayne State University\\Desktop\\Stack.img]");
+
+//saveAs("Tiff", "C:\\Users\\aa1924\\OneDrive - Wayne State University\\Desktop\\Stack.tif");
+//run("Line Width...", "line=500");
+//setTool("polyline");
+//waitForUser( "Pause","Draw ROI to straighten");
+//run("Straighten...", "title=Stack-1 line=500 process");
+//selectWindow("Stack.tif");
+//run("Close");
+
+
+run("Delete Slice");
+run("8-bit");
+run("Set Scale...", "distance=0");
+run("Max...", "value=230");
+setTool("polyline");
+run("Color Picker...");
+run("Line Width...", "line=1");
+//run("Despeckle");
+
+setForegroundColor(255, 255, 255);
+waitForUser( "Pause","Draw RPE");
+run("Fill", "slice");
+
+setForegroundColor(254, 254, 254);
+waitForUser( "Pause","Draw ELM")
+run("Fill", "slice");
+
+setForegroundColor(253, 253, 253);
+waitForUser( "Pause","Draw ONL-OPL border");
+run("Fill", "slice");
+
+setForegroundColor(252, 252, 252);
+waitForUser( "Pause","Draw INL-IPL border");
+run("Fill", "slice");
+
+setForegroundColor(250, 250, 250);
+waitForUser( "Pause","Draw GCL-RNFL border");
+run("Fill", "slice");
+
+setForegroundColor(249, 249, 249);
+waitForUser( "Pause","Draw RNFL-vitreous border");
+run("Fill", "slice");
+
+setForegroundColor(243, 243, 243);
+waitForUser( "Pause","Place vertical line at optic nerve around 500 +/- 20");
+run("Fill", "slice");
+
+saveAs("Text Image", "C:\\Users\\aa1924\\OneDrive - Wayne State University\\Desktop\\Stack.txt");
+close();

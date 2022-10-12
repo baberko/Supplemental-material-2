@@ -1,0 +1,16 @@
+open("C:\\Users\\aa1924\\OneDrive - Wayne State University\\Desktop\\aspect ratio material\\squished 100x259 Inferior template.tif");
+
+waitForUser( "Pause","Open image to analyze");
+run("Select All");
+run("Size...", "width=100 height=259 interpolation=Bilinear");
+run("Tile");
+selectWindow("squished 100x259 Inferior template.tif");
+waitForUser( "Pause","Select new image to analyze");
+//setMinAndMax(-0.6, 2);
+//setMinAndMax(-6.2194, -5.0533);
+setMinAndMax(65, 190);
+run("Restore Selection");
+run("Crop");
+selectWindow("squished 100x259 Inferior template.tif");
+close();
+

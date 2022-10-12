@@ -1,0 +1,18 @@
+//run("OCT Reader");
+//run("Slice Remover", "first=550 last=1000 increment=1");
+//run("Slice Remover", "first=1 last=449 increment=1");
+
+run("Images to Stack")
+run("Flip Vertically", "stack");
+run("8-bit");
+makeRectangle(0, 126, 1000, 500);
+run("Colors...", "foreground=black background=black selection=yellow");
+
+setTool("rectangle");
+waitForUser( "Pause","Position ROI around retina");
+run("Crop"); 
+
+run("Analyze... ", "save=[C:\\Users\\aa1924\\OneDrive - Wayne State University\\Desktop\\forregStack.img]");
+
+run("Close All Without Saving");
+
